@@ -16,7 +16,7 @@ export const ourFileRouter = {
     courseAttachment: f(["text", "image","video", "audio", "pdf"])
     .middleware(()=> handleAuth())
     .onUploadComplete(()=>{}),
-    chapterVideo:f({video:{maxFileCount:1, maxFileSize:"128MB"}})
+    chapterVideo:f({video:{maxFileCount:1, maxFileSize:"256MB"}})
     .middleware(()=> handleAuth())
     .onUploadComplete(()=>{})
 
