@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.24.2",
+    "@hello-pangea/dnd": "^16.3.0",
     "@hookform/resolvers": "^3.3.1",
     "@prisma/client": "^5.3.1",
     "@radix-ui/react-dialog": "^1.0.5",
@@ -31,6 +32,7 @@
     "next": "13.5.3",
     "postcss": "8.4.31",
     "react": "18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.46.2",
     "react-hot-toast": "^2.4.1",
@@ -42,6 +44,7 @@
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@types/react-beautiful-dnd": "^13.1.5",
     "prisma": "^5.3.1"
   }
 }
