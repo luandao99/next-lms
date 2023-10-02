@@ -15,6 +15,8 @@ import { CategoryForm } from "./_components/category-form";
 import { PriceForm } from "./_components/price-form";
 import { AttchmentForm } from "./_components/attchment-form";
 import { ChaptersForm } from "./_components/chapters-form";
+import { Banner } from "@/components/bannder";
+import { Actions } from "./_components/actions";
 
 const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
   const { userId } = auth();
@@ -68,14 +70,27 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
   //Điều này sẽ cho biết có bao nhiêu trường đã được điền.
 
   const completionText = `(${completedFields} / ${totalFields})`;
+  const isComplete = requiredFields.every(Boolean);
 
   return (
+    <>
+    {!course.isPublished &&(
+      <Banner
+          variant="warning"
+          label="This couser is unpublicshed. It will not be visible in the course"
+       />
+    )}
     <div className="p-6">
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-y-2">
           <h1 className="text-2xl font-medium">Course setup</h1>
           <span>Complete all fields {completionText}</span>
         </div>
+        <Actions
+        disabled={!isComplete}
+        courseId={params.courseId}
+        isPublished={course.isPublished}
+         />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
         <div>
@@ -118,6 +133,8 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
         </div>
       </div>
     </div>
+    </>
+    
   );
 };
 
